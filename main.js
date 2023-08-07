@@ -33,6 +33,19 @@ const quotes = [
     }
 ]
 
+
+// getRandomQuote function
+
 function getRandomQuote() {
-    let RandomQuote = 
+    let RandomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    return RandomQuote
 }
+
+// function printQuote() {
+//     let html = `<div>${getRandomQuote()}</div>`
+//     return html
+// }
+
+
+document.getElementById('load-quote').addEventListener("click", printQuote)
+
