@@ -38,14 +38,32 @@ const quotes = [
 
 function getRandomQuote() {
     let RandomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-    return RandomQuote
+    return RandomQuote; }
+
+
+function printQuote(){
+    let quote = getRandomQuote();
+    let html = `<p class="quote">${quote.quote}</p>
+    <p class="source">${quote.source}`
+    if (quote.citation !== undefined) {
+    html += `<span class ="citation">${quote.citation}</span>`;
+    }
+    if (quote.year !== undefined) {
+    html += `<span class = "year">${quote.year}</span>`;
+    }
+    if (quote.tag !== undefined) {
+    html += `<span class = "tag">, ${quote.tag}</span>`;
+    }
+    `</p>`
+
+    return (document.getElementById("quote-box").innerHTML = html);
 }
 
-// function printQuote() {
-//     let html = `<div>${getRandomQuote()}</div>`
-//     return html
-// }
+document.getElementById('load-quote').addEventListener("click", printQuote, false);
 
 
-document.getElementById('load-quote').addEventListener("click", printQuote)
+
+
+
+
 

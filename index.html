@@ -4,13 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random quote generator</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+    <header>
     <h1>Inspirational quote generator </h1>
-    <div id="quoteDisplay">
-        <!-- Quotes will display here -->
-    </div>
     <button id="load-quote" class="load-quote">New Quote</button>
+    </header>
+
+    <div class="container">
+        <div id="quote-box" class="quote-box">
+        <p class="quote">Every great developer you know got there by solving problems they were unqualified to solve until they actually did it.</p>
+        <p class="source">Patrick McKenzie<span class="citation">Twitter</span><span class="year">2016</span></p>
+        </div>
+    </div>
+
     <script src="./main.js"></script>
 </body>
 </html>
