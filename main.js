@@ -33,37 +33,53 @@ const quotes = [
     }
 ]
 
+// Array of colors for text and background
+const colors = ['red', 'violet', 'hotpink', 'brown', 'purple', 'green', 'orange', 'gray', 'babyblue'];
 
 // getRandomQuote function
-
 function getRandomQuote() {
-    let RandomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-    return RandomQuote; }
-
-
-function printQuote(){
-    let quote = getRandomQuote();
-    let html = `<p class="quote">${quote.quote}</p>
-    <p class="source">${quote.source}`
-    if (quote.citation !== undefined) {
-    html += `<span class ="citation">${quote.citation}</span>`;
-    }
-    if (quote.year !== undefined) {
-    html += `<span class = "year">${quote.year}</span>`;
-    }
-    if (quote.tag !== undefined) {
-    html += `<span class = "tag">, ${quote.tag}</span>`;
-    }
-    `</p>`
-
-    return (document.getElementById("quote-box").innerHTML = html);
+    // Generates a random index and retrieves a random quote from the quotes array
+    return quotes[Math.floor(Math.random() * quotes.length)];
 }
 
-document.getElementById('load-quote').addEventListener("click", printQuote, false);
+// gets random color from the colors array
+function getRandomColor() {
+    // Generates a random index and retrieves a random color from the colors array
+    return colors[Math.floor(Math.random() * colors.length)];
+}
 
+// Function to print a random quote and set the text color and background color
+function printQuote() {
+    // Get a random quote
+    let quote = getRandomQuote();
+    // Get a random color
+    let color = getRandomColor();
 
+    // Build the HTML for the quote and its details
+    let html = `<p class="quote" style="color: ${color};">${quote.quote}</p>
+    <p class="source" style="color: ${color};">${quote.source}`;
 
+    // Check if the quote has additional details
+    if (quote.citation !== undefined) {
+        html += `<span class="citation" > ${quote.citation}</span>`;
+    }
+    if (quote.year !== undefined) {
+        html += `<span class="year" > ${quote.year}</span>`;
+    }
+    if (quote.tag !== undefined) {
+        html += `<span class="tag" >, ${quote.tag}</span>`;
+    }
+    html += `</p>`;
 
+    // Update the HTML of the quote-box element
+    document.getElementById("quote-box").innerHTML = html;
 
+    // Set the background color of the body to match the text color
+    document.body.style.backgroundColor = color;
+}
 
-
+// Attach the printQuote function to the "New Quote" button's click event
+document.getElementById('load-quote').addEventListener("click", function () {
+    printQuote();
+    getRandomColor();
+}, false);
