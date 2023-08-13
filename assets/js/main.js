@@ -4,34 +4,41 @@ const quotes = [
     {
         quote: 'Education is the most powerful weapon which you can use to change the world.',
         source: 'Nelson Mandela',
-        year: 1990
+        year: 1990,
+        img: '/assets/img/nelson.jpg'
     },
 
     {
         quote: 'Be the change that you wish to see in the world.',
         source: 'Mahatma Gandhi',
-        year: 1913
+        year: 1913,
+        img: '/assets/img/gandhi.jpg'
     },
 
     {
         quote: 'If you want to know what a mans like, take a good look at how he treats his inferiors, not his equals.',
         source: 'J.K. Rowling',
         tag: 'Book, Harry potter and the Goblet of fire.',
-        year: 2000
+        year: 2000,
+        img: '/assets/img/JK-Rowling.jpg'
     },
 
     {
         quote: 'Never let the fear of striking out keep you from playing the game',
         source: 'Babe Ruth',
         tag: 'Baseball player',
+        year: '1920-1930',
+        img: '/assets/img/babe.jpg'
     },
 
     {
         quote: 'Life imposes things on you that you can`t control, but you still have the choice of how you`re going to live through this.',
         source: 'Celine Dion',
         tag: 'Canadian Singer',
+        img: '/assets/img/celine-dion.webp'
     }
 ]
+
 
 // Array of colors for text and background
 const colors = ['red', 'violet', 'hotpink', 'brown', 'purple', 'green', 'orange', 'gray', 'babyblue'];
@@ -70,6 +77,9 @@ function printQuote() {
         html += `<span class="tag" >, ${quote.tag}</span>`;
     }
     html += `</p>`;
+    if (quote.img !== undefined) {
+        html += `<img id="img" src="${quote.img}" alt="Image of ${quote.source}" >`;
+    }
 
     // Update the HTML of the quote-box element
     document.getElementById("quote-box").innerHTML = html;

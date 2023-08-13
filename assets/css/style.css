@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap');
 
-
 body {
     color: #333;
     margin: 0;
@@ -60,6 +59,17 @@ main {
     background-color: aqua;
     cursor: pointer;
 }
+
+/* Add a solid border and make it the same color as the background */
+img {
+    max-width: 150px;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border: 2px solid;
+}
+
 
 footer {
     position: fixed;
